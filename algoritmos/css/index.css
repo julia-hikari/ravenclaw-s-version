@@ -1,26 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Special+Elite&display=swap');
 
-body {
+@font-face {
+    font-family: SpecialElites;
+    src: url(../imgs/SpecialElite-Regular.ttf);
+}
+
+* {
     margin: 0;
-    padding: 0;
 }
 
 .header {
-    background: linear-gradient(0deg, rgba(90, 112, 207, 0.726) 15%, rgba(4, 32, 124, 0.911) 73%);
-    width: auto;
+    background: #0285c777;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 90px;
-    z-index: 900;
+    z-index: 999;
 }
 
 .containerHeader {
+    margin: auto;
     display: flex;
-    width: 1300px;
+    width: 90%;
     height: 90px;
     align-items: center;
 }
 
 .listHeader {
-    font-family: montserrat ;
+    font-family: 'Merriweather', serif;
     text-shadow: 1.5px 1.2px 1.2px #000;
     list-style: none;
     display: flex;
@@ -50,7 +59,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #2563eb;
+    background-color: #3b79ff;
     transform: scaleX(0);
     transition: transform 0.25s;
 }
@@ -72,3 +81,166 @@ body {
     transform: scaleX(1);
 }
 
+/* inicio da page Home */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: self-end;
+}
+
+.home .backgroundHome {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.home h1 {
+    font-family: SpecialElites;
+    font-size: xx-large;
+    font-weight: 900;
+    color: rgb(4, 8, 68);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    position: absolute;
+    z-index: 1;
+    padding-bottom: 150px;
+}
+
+/* Page Curiosidades beco diagonal*/
+.diagonAlley {
+    display: flex;
+}
+
+.diagonAlley img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+/* Page Curiosidades poções*/
+.potionsSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.potionsSection .backPotions {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.potionsSection .potions {
+    padding-top: 50px;
+    position: absolute;
+    z-index: 1;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    height: 500px;
+}
+
+.potionsSection .potionA {
+    display: flex;
+    width: 410px;
+    height: 210px;
+    border-radius: 10px;
+    background-color: rgba(245, 87, 113, 0.425);
+    & img{
+        width: 100px;
+        height: 115px;
+        justify-self: start;
+        align-self: center;
+        padding-left: 10px;
+    }
+    & h2 {
+        align-self: center;
+        font-family: 'Merriweather', serif;
+        font-size: large;
+        width: 250px;
+        height: 130px;
+        padding-left: 20px;
+        color: #000;
+        text-shadow: 1.5px 1.5px 1.5px #ffd3d3;
+    }
+}
+
+.potionsSection .potionH {
+    display: flex;
+    width: 410px;
+    height: 210px;
+    border-radius: 10px;
+    background-color: rgba(169, 69, 252, 0.425);
+    & img{
+        width: 65px;
+        height: 100px;
+        justify-self: start;
+        padding-left: 12px;
+        align-self: center;
+    }
+    & h2 {
+        align-self: center;
+        padding-bottom: 20px;
+        font-family: 'Merriweather', serif;
+        font-size: large;
+        width: 300px;
+        height: 120px;
+        padding-left: 15px;
+        color: #000;
+        text-shadow: 1.5px 1.5px 1.5px #a78bfa;
+    }
+}
+
+.potionsSection .potionV {
+    display: flex;
+    width: 410px;
+    height:210px;
+    border-radius: 10px;
+    background-color: rgba(13, 194, 22, 0.514);
+    & img{
+        width: 60px;
+        height: 130px;
+        justify-self: start;
+        align-self: center;
+        padding-left: 10px;
+    }
+    & h2 {
+        align-self: center;
+        font-family: 'Merriweather', serif;
+        font-size: large;
+        width: 315px;
+        height: 120px;
+        padding-left: 20px;
+        padding-bottom: 50px;
+        color: #000;
+        text-shadow: 1.5px 1.5px 1.5px #86efac;
+    }
+}
+
+
+.potionsSection .potionF {
+    display: flex;
+    width: 410px;
+    height: 210px;
+    border-radius: 10px;
+    background-color: rgba(220, 233, 44, 0.589);
+    & img{
+        width: 75px;
+        height: 135px;
+        justify-self: start;
+        align-self: center;
+        padding-left: 10px;
+    }
+    & h2 {
+        align-self: center;
+        font-family: 'Merriweather', serif;
+        font-size: large;
+        width: 280px;
+        height: 120px;
+        padding-left: 20px;
+        padding-bottom: 16px;
+        color: #000;
+        text-shadow: 1.5px 1.5px 1.5px #fef08a;
+    }
+}
