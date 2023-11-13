@@ -236,8 +236,8 @@
         width: 250px;
         height: 130px;
         padding-left: 20px;
-        color: #000;
-        text-shadow: 1.5px 1.5px 1.5px #ffd3d3;
+        color: #ffd3d3;
+        text-shadow: 1.5px 1.5px 1.5px #1a0909;
     }
 }
 
@@ -262,8 +262,8 @@
         width: 300px;
         height: 120px;
         padding-left: 15px;
-        color: #000;
-        text-shadow: 1.5px 1.5px 1.5px #a78bfa;
+        color: #e0d7ff;
+        text-shadow: 1.5px 1.5px 1.5px #0a0224;
     }
 }
 
@@ -288,8 +288,8 @@
         height: 120px;
         padding-left: 20px;
         padding-bottom: 50px;
-        color: #000;
-        text-shadow: 1.5px 1.5px 1.5px #86efac;
+        color: #c5eed4;
+        text-shadow: 1.5px 1.5px 1.5px #03180b;
     }
 }
 
