@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Special+Elite&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../assets/backgroundLogin.png);
+    object-fit: cover;
+  }
+
+
+  .container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+  }
+  
+  .login .container {
+    margin-top: 110px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .container .card {
+    width: 480px;
+    background-color: #ffffffdc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    color: #0b0199;
+    margin-top: 20px;
+  }
+  
+  .card-login {
+    height: 450px;
+  }
+  
+  .card h2 {
+    font-family:'Merriweather', serif ;
+    margin: 0;
+    font-size: 29px;
+  }
+
+  .card #logoCard{
+    margin: 0;
+    width: 60px;
+    height: 70px;
+  }
+  
+  .formulario {
+    display: flex;
+    height: 80%;
+    width: 80%;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  
+  .formulario span {
+    font-size: 18px;
+    font-weight: 800;
+  }
+  
+  .formulario input {
+    border: 2px solid rgb(89, 124, 240);
+    background-color: rgba(158, 151, 255, 0.452);
+    height: 35px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  
+  .botao {
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: 'Merriweather', serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    background-color: #0b0199;
+    width: 120px;
+    height: 30px;
+    align-self: center;
+  }
+  
+  .loading-div {
+    width: 50px;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }

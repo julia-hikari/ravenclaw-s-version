@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Special+Elite&display=swap');
+
+@font-face {
+    font-family: SpecialElites;
+    src: url(../assets/SpecialElite-Regular.ttf);
+}
+
+* {
+    margin: 0;
+}
+
+.header {
+    background: #0285c777;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 999;
+}
+
+.containerHeader {
+    margin: auto;
+    display: flex;
+    width: 90%;
+    height: 90px;
+    align-items: center;
+}
+
+.listHeader {
+    font-family: 'Merriweather', serif;
+    text-shadow: 1.5px 1.2px 1.2px #000;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.linkList {
+    align-items: center;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 600ms, border-color 600ms;
+    z-index: 10000;
+
+}
+
+.linkList::before,
+.linkList::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3b79ff;
+    transform: scaleX(0);
+    transition: transform 0.25s;
+}
+
+.linkList::before {
+    top: -3px;
+    transform-origin: left;
+}
+
+.linkList::after {
+    bottom: -3px;
+    transform-origin: right;
+}
+
+.linkList:hover::before,
+.linkList:hover::after,
+.active::before,
+.active::after {
+    transform: scaleX(1);
+}

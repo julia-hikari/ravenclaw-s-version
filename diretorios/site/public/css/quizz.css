@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Scope+One&family=Special+Elite&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Scope One';
+}
+body {
+    background-image: url(../assets/quadribol.png);
+}
+.containerPai{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerQuizz {
+    background: rgba(58, 22, 219, 0.8);
+    width: 600px;
+    /* max-width: 600px; */
+    margin: 100px;
+    border-radius: 10px;
+    padding: 30px;
+    align-items: center;
+    align-self: center;
+}
+
+.containerQuizz h1 {
+    color: #fff;
+    font-family: 'Scope One';
+    font-size: 35px;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 30px;
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2{
+    font-size: 18px;
+    color: #fff;
+}
+
+.btn {
+    background: rgba(162, 198, 253, 0.835);
+    color: #000;
+    font-weight: 900;
+    width: 100%;
+    border: 1px solid #131212;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover:not([disabled]) {
+    background: #1a1a1a;
+    color: #f5f6f6;
+}
+
+/* para nao surgir o efeito de parecer possivel clicar no botao */
+.btn:disabled { 
+    cursor: no-drop;
+}
+
+#next-button {
+    background: #001514;
+    color: #f5f6f6;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+}
+
+.correct {
+    background: #9aeabc;
+}
+.incorrect {
+    background: #ff9393;
+}
+
+.text-quiz {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.home-btn {
+    width: 100%;
+    height: 100%;
+    align-items: end;
+    display: flex;
+    justify-content: center;
+}
+
+.home-btn a{
+    color: #fff;
+    font-family: 'Scope One';
+}
