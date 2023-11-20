@@ -54,8 +54,9 @@
                 <div id="div_aguardar" class="loading-div">
                     <img src="assets/circle-loading.gif" id="loading-gif">
                 </div>
-
+                <button id="btnInscrever" onclick="GoToCadastro()">Ainda não possui conta? Inscreva-se!</button>
                 <div id="div_erros_login"></div>
+                
             </div>
         </div>
     </div>
@@ -140,5 +141,7 @@
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
-
+    function GoToCadastro(){
+        window.location = "cadastro.html"
+    }
 </script>

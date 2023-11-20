@@ -101,8 +101,9 @@
     padding-top: 360px;
     color: white;
     text-shadow: 1.5px 1.5px 1.5px #1a0909;
-    
+
 }
+
 .diagonAlley #diagonal {
     position: absolute;
     z-index: 3;
@@ -111,7 +112,7 @@
     justify-self: right;
     align-self: center;
     padding-left: 790px;
-    padding-bottom: 150px; 
+    padding-bottom: 150px;
     color: white;
     text-shadow: 1.5px 1.5px 1.5px #1a0909;
 }
@@ -152,7 +153,7 @@
 }
 
 /* page filme */
-.filmes{
+.filmes {
     display: flex;
     height: 1000px;
     width: 100%;
@@ -160,7 +161,7 @@
     align-items: center;
     background-image: url(../assets/backgroundFilmes.png);
 
-    & .containerFilmes{
+    & .containerFilmes {
         display: flex;
         width: 85%;
         height: 90%;
@@ -169,18 +170,21 @@
         align-items: center;
 
     }
-    & .boxFilmes{
+
+    & .boxFilmes {
         display: flex;
         width: 250px;
         height: 500px;
     }
-    & img{
+
+    & img {
         width: 250px;
         height: 320px;
     }
 }
-.boxFilmes h1{
-    font-family:'Merriweather', serif ;
+
+.boxFilmes h1 {
+    font-family: 'Merriweather', serif;
     font-size: small;
     position: absolute;
     justify-self: center;
@@ -191,8 +195,8 @@
     color: #fff;
 }
 
-.boxFilmes h2{
-    font-family:'Merriweather', serif ;
+.boxFilmes h2 {
+    font-family: 'Merriweather', serif;
     font-size: small;
     position: absolute;
     justify-self: center;
@@ -340,18 +344,18 @@
     }
 }
 
-.legacy{
+.legacy {
     display: flex;
     background-image: url(../assets/backLegacy.png);
     justify-content: center;
     align-items: end;
     height: 100vh;
 
-    & .boxText{
-        -webkit-box-shadow:0px 0px 128px 48px rgba(46,63,255,0.54);
-        -moz-box-shadow: 0px 0px 128px 48px rgba(46,63,255,0.54);
-        box-shadow: 0px 0px 128px 48px rgba(46,63,255,0.54);
-        background-color: rgba(46,63,255,0.39);
+    & .boxText {
+        -webkit-box-shadow: 0px 0px 128px 48px rgba(46, 63, 255, 0.54);
+        -moz-box-shadow: 0px 0px 128px 48px rgba(46, 63, 255, 0.54);
+        box-shadow: 0px 0px 128px 48px rgba(46, 63, 255, 0.54);
+        background-color: rgba(46, 63, 255, 0.39);
         width: 710px;
         height: 80px;
         display: flex;
@@ -360,7 +364,8 @@
         margin-left: 60px;
     }
 }
-.boxText  h1{
+
+.boxText h1 {
     align-self: center;
     justify-self: center;
     font-family: 'Scope One';
@@ -368,4 +373,126 @@
     color: rgb(212, 151, 18);
     text-shadow: 1.5px 1.5px 1.5px #000000;
     padding-left: 30px;
+}
+
+.legacy2 {
+    display: flex;
+    background-image: url(../assets/spell.png);
+    align-items: center;
+    height: 100vh;
+
+    & .caixaTexto {
+        display: flex;
+        animation: left ;
+        animation-timeline: view();
+        animation-range: cover -10% cover 40%;
     }
+}
+.legacy2 .caixaTexto p{
+    width: 400px;
+    color: white;
+    font-family: 'Scope One';
+    font-size: 28px;
+    margin-left: 60px;
+}
+
+.legacy3 {
+    display: flex;
+    background-image: url(../assets/potions.png);
+    justify-content: center;
+    height: 100vh;
+
+    & .caixaTexto{
+        display: flex;
+        justify-content: center;
+        animation: up linear both;
+        animation-timeline: view(block);
+        animation-range: cover 10% cover 50%;
+    }
+}
+
+.legacy3 .caixaTexto p{
+    width: 800px;
+    color: white;
+    font-family: 'Scope One';
+    font-size: 28px;
+    padding-top: 130px;
+
+}
+
+.legacy4 {
+    display: flex;
+    background-image: url(../assets/legacyback.png);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    & .caixaTexto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: up linear both;
+        animation-timeline: view(block);
+        animation-range: cover 7% cover 50%;
+    }
+}
+
+.legacy4 .caixaTexto p{
+    width: 800px;
+    color: white;
+    font-family: 'Scope One';
+    font-size: 28px;
+
+}
+
+.legacy5 {
+    display: flex;
+    background-image: url(../assets/screen_01.png);
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+
+    & .caixaTexto{
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        animation: up linear both;
+        animation-timeline: view(block);
+        animation-range: cover 10% cover 50%;
+    }
+}
+
+.legacy5 .caixaTexto p{
+    width: 300px;
+    color: white;
+    font-family: 'Scope One';
+    font-size: 28px;
+}
+
+@keyframes scroll{
+    from{
+        background-position: 60% 0;
+    }
+    to {
+        background-position: 50% 100%;
+    }
+}
+
+@keyframes up{
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(10%);
+    }
+}
+@keyframes left{
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

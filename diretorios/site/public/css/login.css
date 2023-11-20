@@ -99,3 +99,16 @@ body {
     height: 50px;
     width: 50px;
   }
+
+  #btnInscrever{
+    color: #fff;
+    font-family: 'Scope One';
+    align-self: flex-end;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #0b0199cc;
+    font-size: 15px;
+    margin-right: 120px;
+    margin-bottom: 15px;
+  
+  }
