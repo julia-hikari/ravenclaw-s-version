@@ -1,4 +1,4 @@
-const questions = [
+var questions = [
     {
         question: "Qual animal você escolheria para levar a Hogwarts?",
         answers: [
@@ -92,15 +92,15 @@ const questions = [
         ]
     },
 ];
-const questionElement = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-button");
+var questionElement = document.getElementById("question");
+var answerButtons = document.getElementById("answer-buttons");
+var nextButton = document.getElementById("next-button");
 
-let questionNow = 0;
-let corvinal = 0;
-let grifinoria = 0;
-let sonserina = 0;
-let lufalufa = 0;
+var questionNow = 0;
+var corvinal = 0;
+var grifinoria = 0;
+var sonserina = 0;
+var lufalufa = 0;
 
 function startQuiz() {
     questionNow = 0;
@@ -113,24 +113,24 @@ function startQuiz() {
 }
 
 function showQuestion() {
-    resetState(); //para esconder o nome das respostas previas criadas no html
-    let currentQuestion = questions[questionNow];
-    let questionNo = questionNow + 1;
+    clean(); //para esconder o nome das respostas previas criadas no html
+    var currentQuestion = questions[questionNow];
+    var questionNo = questionNow + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question; // para exibir o número da questão atual
 
-    currentQuestion.answers.forEach(answer => { // para cada resposta:
-        const button = document.createElement("button"); // criação de botão
-        button.innerHTML = answer.text;
+    currentQuestion.answers.forEach(answer => { // chama as respostas da questão atual e muda cada resposta:
+        var button = document.createElement("button"); // criação de botão
+        button.innerHTML = answer.text; // 
         button.classList.add("btn"); // adicionando class 'btn' no botão
         answerButtons.appendChild(button); // anexa um nó (elemento) como o último filho do answerButtons
-        if (answer.correct) {
+        if (answer.correct) { // preciso desse if????
             button.dataset.correct = answer.correct; // armazenar no botão answer.correct
         }
         button.addEventListener("click", selectAnswer);
     });
 }
 
-function resetState() {
+function clean() {
     nextButton.style.display = "none";
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
@@ -138,11 +138,11 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const ravenclaw = selectedBtn.dataset.correct === '1'; //O dataset é uma propriedade HTML que permite armazenar dados personalizados
-    const hufflepuff = selectedBtn.dataset.correct === '3';
-    const slytherin = selectedBtn.dataset.correct === '2';
-    const gryffindor = selectedBtn.dataset.correct === '4';
+    var selectedBtn = e.target;
+    var ravenclaw = selectedBtn.dataset.correct === '1'; //O dataset é uma propriedade HTML que permite armazenar dados personalizados
+    var hufflepuff = selectedBtn.dataset.correct === '3';
+    var slytherin = selectedBtn.dataset.correct === '2';
+    var gryffindor = selectedBtn.dataset.correct === '4';
     if (ravenclaw) {
         selectedBtn.classList.add("rav"); // se a resposta for corvinal adiciona a classe 'rav'
         corvinal++;
@@ -170,7 +170,7 @@ function selectAnswer(e) {
 }
 
 function showScore() {
-    resetState();
+    clean();
         if(corvinal > sonserina && corvinal > grifinoria && corvinal > lufalufa){
             questionElement.innerHTML = `Parabéns! você é da Corvinal!`;
         }
@@ -178,7 +178,7 @@ function showScore() {
             questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
             Bem vindo a Sonserina!<br><br>
             "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
-            - O Chapéu Seletor`;
+            - O Chapéu Sevaror`;
         }
         else if(grifinoria > corvinal && grifinoria > sonserina && grifinoria > lufalufa){
             questionElement.innerHTML = `Parabéns! você é da Grifinória!`;
@@ -187,7 +187,7 @@ function showScore() {
             questionElement.innerHTML = `Parabéns! você é da Lufa-lufa!`;
         }
         else{
-            questionElement.innerHTML = `O chapéu seletor ainda está se decidindo, você pode fazer o teste novamente?`;
+            questionElement.innerHTML = `O chapéu sevaror ainda está se decidindo, você pode fazer o teste novamente?`;
         }
     nextButton.innerHTML = "Jogar Quiz de conhecimentos";
     nextButton.style.display = "block";
@@ -207,7 +207,7 @@ nextButton.addEventListener("click", () => { //adicionar uma função ao clicar 
         handleNextButton();
     }
     else { // o botão chama a função para começar o jogo de novo
-        startQuiz()
+        btn.href
     }
 });
 startQuiz();

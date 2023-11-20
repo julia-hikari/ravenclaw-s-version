@@ -1,4 +1,4 @@
-const questions = [
+var questions = [
     {
       question: "Qual poção costuma ser chamada de 'Sorte Líquida'?",
       answers: [
@@ -90,53 +90,53 @@ const questions = [
       ]
     },
   ];
-  
-  const questionElement = document.getElementById("question"); 
-  const answerButtons = document.getElementById("answer-buttons");
-  const nextButton = document.getElementById("next-button");
-  
-  let questionNow = 0;
-  let score = 0;
+// retorna um elemento com um valor especificado assim que uma função for chamada, é usado quase sempre que você deseja ler ou editar um elemento HTML
+  var questionInner = document.getElementById("question"); 
+  var answerButtons = document.getElementById("answerButtons");
+  var nextButton = document.getElementById("nextButton");
+  var questionNow = 0;
+  var score = 0;
   
   function startQuiz() {
-    questionNow = 0;
+    questionNow = 0; 
     score = 0;
     nextButton.innerHTML = "Proximo";
     showQuestion();
   }
   
   function showQuestion() {
-    resetState(); //para esconder o nome das respostas previas criadas no html
-    let currentQuestion = questions[questionNow];
-    let questionNo = questionNow + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question; // para exibir o número da questão atual
+    clean(); //para esconder o nome das respostas previas criadas no html
+    var currentQuestion = questions[questionNow];
+    var questionN = questionNow + 1;
+    questionInner.innerHTML = questionN + ". " + currentQuestion.question; // para exibir o número da questão atual
   
-    currentQuestion.answers.forEach(answer => { // para cada resposta:
-      const button = document.createElement("button"); // criação de botão
+    currentQuestion.answers.forEach(answer => { // usando o forEach para percorrer por cada resposta da questão atual. Guardando duas propriedades para cada resposta.
+      var button = document.createElement("button"); // criação de botão
       button.innerHTML = answer.text;
       button.classList.add("btn"); // adicionando class 'btn' no botão
-      answerButtons.appendChild(button); // anexa um nó (elemento) como o último filho do answerButtons
-      if (answer.correct) {
-        button.dataset.correct = answer.correct; // armazenar no botão answer.correct
+      answerButtons.appendChild(button); // anexa o 'button' como o último filho do answerButtons
+      if (answer.correct) { // verifica se a propriedade 'correct' do 'answer' é verdadeira
+        button.dataset.correct = answer.correct; // atribui o valor de answer.correct à propriedade correct do objeto dataset do button
       }
-      button.addEventListener("click", selectAnswer);
+      button.addEventListener("click", selectAnswer); // 'addEventListener' adiciona um evento de click ao botão. Esse evento é usado para executar uma função chamada selectAnswer quando o usuário clicar no botão.
     });
   }
   
-  function resetState() {
-    nextButton.style.display = "none";
+  function clean() { //  verifica se o elemento answerButtons tem algum filho
+    nextButton.style.display = "none"; // esconde o botão next
     while (answerButtons.firstChild) {
-      answerButtons.removeChild(answerButtons.firstChild);
+      answerButtons.removeChild(answerButtons.firstChild); //  remove o primeiro filho do elemento answerButtons
     }
   }
   
   function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true"; //O dataset é uma propriedade HTML que permite armazenar dados personalizados
+    var selectedBtn = e.target;
+    var isCorrect = selectedBtn.dataset.correct === "true"; //O dataset é uma propriedade HTML que permite armazenar dados personalizados
     if (isCorrect) {
       selectedBtn.classList.add("correct"); // se a resposta for true adiciona a classe 'correct'
       score++;
-    } else {
+    }
+    else {
       selectedBtn.classList.add("incorrect") // se não, adiciona a classe 'incorrect'
     }
     Array.from(answerButtons.children).forEach(button => { // para cada botão:
@@ -149,8 +149,8 @@ const questions = [
   }
   
   function showScore() {
-    resetState();
-    questionElement.innerHTML = `Você fez ${score} pontos de ${questions.length}!`;
+    clean();
+    questionInner.innerHTML = `Você fez ${score} pontos de ${questions.length}!`;
     nextButton.innerHTML = "Jogar de novo";
     nextButton.style.display = "block";
   }
@@ -159,7 +159,8 @@ const questions = [
     questionNow++;
     if (questionNow < questions.length) {
       showQuestion();
-    } else {
+    }
+    else {
       showScore();
     }
   }

@@ -85,7 +85,7 @@ body {
     background: #ff9393;
 }
 
-.text-quiz {
+.text {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

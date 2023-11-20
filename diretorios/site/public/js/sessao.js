@@ -4,9 +4,13 @@ function validarSessao() {
     var nome = sessionStorage.NOME_USUARIO;
 
     var b_usuario = document.getElementById("b_usuario");
+    var getQuiz = document.getElementById("#quiz");
+    var getCasa = document.getElementById("#selecao")
 
     if (email != null && nome != null) {
         b_usuario.innerHTML = nome;
+        getQuiz.href = "../quizz.html";
+        getCasa.href = "../selecao.html"
     } else {
         window.location = "../login.html";
     }
