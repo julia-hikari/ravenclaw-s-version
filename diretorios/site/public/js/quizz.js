@@ -85,11 +85,12 @@ const questions = [
       answers: [
         { text: "O Medalhão de Slytherin", correct: false },
         { text: "A Cobra Nagini", correct: false },
-        { text: "o livro do Príncipe Mestiço", correct: true },
+        { text: "O livro do Príncipe Mestiço", correct: true },
         { text: "Harry Potter", correct: false },
       ]
     },
   ];
+  
   const questionElement = document.getElementById("question"); 
   const answerButtons = document.getElementById("answer-buttons");
   const nextButton = document.getElementById("next-button");
