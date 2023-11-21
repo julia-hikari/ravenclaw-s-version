@@ -14,16 +14,16 @@
   <link rel="stylesheet" href="css/header.css" />
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <div class="header">
     <div class="containerHeader">
         <ul class="listHeader">
             <li><a href="index.html" class="linkList">Home</a></li>
-            <li><a href="" class="linkList">Quiz</a></li>
-            <li><a href="" class="linkList">Seleção de casa</a></li>
-            <li><a href="" class="linkList">Cadastre-se</a></li>
-            <li><a href="" class="linkList">Entrar</a></li>
+            <li><a href="quizz.html" class="linkList">Quiz</a></li>
+            <li><a href="selecao.html" class="linkList">Seleção de casa</a></li>
+            <li><a href="#" class="linkList">Cadastre-se</a></li>
+            <li><a href="login.html" class="linkList">Entrar</a></li>
         </ul>
     </div>
 </div>
@@ -48,6 +48,10 @@
           <div class="campo">
             <span>Sobrenome:</span>
             <input id="sobrenome_input" type="text" placeholder="Seu sobrenome" />
+          </div>
+          <div class="campo">
+            <span>Nome de usuário:</span>
+            <input id="usuario_input" type="text" placeholder="Ex: nome.01" />
           </div>
           <div class="campo">
             <span>E-mail:</span>
@@ -94,6 +98,7 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var sobrenomeVar = sobrenome_input.value;
+    var usuarioVar = usuario_input.value;
     var emailVar = email_input.value;
     var dtNascVar = dtNasc_input.value;
     var cidadeVar = cidade_input.value;
@@ -116,8 +121,34 @@
 
       finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
+    }
+    else if (usuarioVar.indexOf('!') > 0|| usuarioVar.indexOf('#') > 0 || usuarioVar.indexOf('$') > 0 || usuarioVar.indexOf('%') > 0 || usuarioVar.indexOf('&') > 0 || usuarioVar.indexOf('*') > 0 || usuarioVar.indexOf('(') > 0 || usuarioVar.indexOf(') > 0') > 0 || usuarioVar.indexOf('"') > 0 || usuarioVar.indexOf('/') > 0 || usuarioVar.indexOf('?') > 0 || usuarioVar.indexOf('>') > 0 || usuarioVar.indexOf('<') > 0 || usuarioVar.indexOf('^') > 0 || usuarioVar.indexOf('´') > 0 || usuarioVar.indexOf('`') > 0 || usuarioVar.indexOf(',') > 0 || usuarioVar.indexOf('+') > 0 || usuarioVar.indexOf('=') > 0 || usuarioVar.indexOf('°') > 0 || usuarioVar.indexOf(';') > 0 || usuarioVar.indexOf(':') > 0 || usuarioVar.length > 20 || usuarioVar.indexOf('..') > 0
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para usuário inválido)";
+
+      finalizarAguardar();
+      return false;
+    } 
+    else if (senhaVar.length < 6 ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para senha inválida)";
+
+      finalizarAguardar();
+      return false;
+    }
+    else if(senhaVar.indexOf('@') < 0 && senhaVar.indexOf('*') < 0 && senhaVar.indexOf('!')){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para senha sem caracter especial)";
+
+      finalizarAguardar();
+      return false;
+    }
+    else {
+      setInterval(sumirMensagem, 1000);
     }
 
     // Enviando o valor da nova input
@@ -131,6 +162,7 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         sobrenomeServer: sobrenomeVar,
+        usuarioServer: usuarioVar,
         emailServer: emailVar,
         dtNascServer: dtNascVar,
         cidadeServer: cidadeVar,

@@ -28,7 +28,8 @@ function autenticar(req, res) {
                                         id: resultadoAutenticar[0].idUsuario,
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha
+                                        senha: resultadoAutenticar[0].senha,
+                                        usuario: resultadoAutenticar[0].usuario
                                         // fkCasa: resultadoBancoDeDados
                                     });
                     } else if (resultadoAutenticar.length == 0) {
@@ -52,6 +53,7 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var sobrenome = req.body.sobrenomeServer;
+    var usuario = req.body.usuarioServer;
     var email = req.body.emailServer;
     var dtNasc = req.body.dtNascServer;
     var cidade = req.body.cidadeServer;
@@ -67,10 +69,14 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else if (dtNasc == undefined) {
         res.status(400).send("Sua data de nascimento está undefined!");
-    } else {
+    } 
+    else if (usuario == undefined) {
+        res.status(400).send("Seu usuario está undefined!");
+    }
+    else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, email, dtNasc, cidade, uf, senha)
+        usuarioModel.cadastrar(nome, sobrenome, usuario, email, dtNasc, cidade, uf, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);

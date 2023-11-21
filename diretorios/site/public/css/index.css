@@ -484,7 +484,7 @@
         transform: translateY(100%);
     }
     to {
-        transform: translateY(10%);
+        transform: translateY(0%);
     }
 }
 @keyframes left{
