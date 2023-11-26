@@ -29,9 +29,9 @@
 
 
     <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
+        <div class="alert">
+            <div class="cardMensagem" id="cardLogin">
+                <span id="mensagem"></span>
             </div>
         </div>
         <div class="container">
@@ -50,12 +50,8 @@
                     <button class="botao" onclick="entrar()">Entrar</button>
                 </div>
 
-                <div id="div_aguardar" class="loading-div">
-                    <img src="assets/circle-loading.gif" id="loading-gif">
-                </div>
                 <button id="btnInscrever" onclick="GoToCadastro()">Ainda não possui conta? Inscreva-se!</button>
-                <div id="div_erros_login"></div>
-                
+                <div id="loader" class="custom-loader"></div>
             </div>
         </div>
     </div>
@@ -79,8 +75,7 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('erro ao cadastrar, campos não preenchidos')
             finalizarAguardar();
             return false;
         }
@@ -138,7 +133,7 @@
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        cardLogin.style.display = "none"
     }
     function GoToCadastro(){
         window.location = "cadastro.html"

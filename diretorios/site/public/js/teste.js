@@ -38,57 +38,57 @@ var questions = [
         ]
     },
     {
-        question: "O aluno Tom Riddle passou a ser conhecido depois como?",
+        question: "Qual a poção que mais gostaria de inventar e usar",
         answers: [
-            { text: "Dumbledore", correct: 4 },
-            { text: "The chosen one", correct: 3 },
-            { text: "Malfoy", correct: 2 },
-            { text: "Voldemort", correct: 1 },
+            { text: "Poção da fama", correct: 4 },
+            { text: "Poção do amor", correct: 3 },
+            { text: "Poção do poder", correct: 2 },
+            { text: "Poção da sabedoria", correct: 1 },
         ]
     },
     {
-        question: "Qual casa possui a águia em seu brasão?",
+        question: "Entra-se num jardim encantado cheio de coisas misteriosas. Qual deles prefere examinar primeiro?",
         answers: [
-            { text: "1", correct: 1 },
-            { text: "Grifinória", correct: 2 },
-            { text: "Lufa-lufa", correct: 3 },
-            { text: "2", correct: 4 },
+            { text: "A estátua de um velho feiticeiro com os olhos estranhamente cintilantes", correct: 1 },
+            { text: "A árvore com folhas prateadas carregada de maçãs douradas", correct: 2 },
+            { text: "Os enormes cogumelos vermelhos que parecem falar juntos", correct: 3 },
+            { text: "A piscina borbulhante no fundo da qual se pode ver algo luminoso que rodopia incansavelmente", correct: 4 },
         ]
     },
     {
-        question: "Qual desses feitiços é um feitiço de corte?",
+        question: "4 baús são colocados à sua frente. Você só tem permissão para abrir um. Qual você escolhe?",
         answers: [
-            { text: "Depulso", correct: 4 },
-            { text: "Obliviate", correct: 2 },
-            { text: "Rosalia", correct: 1 },
-            { text: "Diffindo", correct: 3 },
+            { text: "O pequeno baú de estanho, simples e despretensioso, no qual se pode ler uma inscrição que diz 'Abro apenas para aquele que merece'", correct: 4 },
+            { text: "O baú dourado talhado, estruturado em dois pés com garras, cujo inscrição avisa que contém conhecimentos secretos e tentação irresistível", correct: 2 },
+            { text: "O baú negro brilhante com fechadura e chave prateada, cujo tem uma misteriosa inscrição em runa identificada como a assinatura de Merlin", correct: 1 },
+            { text: "O pequeno baú de carapaça de tartaruga dourada com ouro fino, que parece conter uma pequena criatura que guincha", correct: 3 },
         ]
     },
     {
-        question: "Qual item mágico permite que voce visite memórias engarrafadas?",
+        question: "Quatro copos cheios de um líquido misterioso são colocados à sua frente. Qual você escolhe beber?",
         answers: [
-            { text: "Lembrol", correct: 3 },
-            { text: "Penseira", correct: 1 },
-            { text: "Espelho de Ojesed", correct: 2 },
-            { text: "Desiluminador", correct: 4 },
+            { text: "O que contem uma bebida espessa, cremosa e roxa com um delicioso aroma de chocolate e ameixa", correct: 3 },
+            { text: "Aquele que contém um liquido prateado e espumoso que brilha como se contivesse pó de diamante", correct: 1 },
+            { text: "Aquele que contém um estranho líquido negro que brilha como tinta e emite vapores causando alucinações estranhas", correct: 2 },
+            { text: "Aquele que contém um liquido dourado e brilhante que fere os olhos e o faz ver pontos brilhantes em todo o lado", correct: 4 },
         ]
     },
     {
-        question: "Quem consegue ver um testrálio?",
+        question: "Por qual motivo você ficaria na detenção em Hogwarts?",
         answers: [
-            { text: "Quem já está no último ano de hogwarts", correct: 4 },
-            { text: "Quem já praticou ou foi atingido pelo feitiço 'Revelio'", correct: 2 },
-            { text: "Quem já testemunhou a morte", correct: 1 },
-            { text: "Quem já morreu", correct: 3 },
+            { text: "Por bater em um colega para defender um amigo", correct: 4 },
+            { text: "Por escrever uma mensagem zombando do seu rival numa parede", correct: 2 },
+            { text: "Por invadir a Seção Restrita da biblioteca", correct: 1 },
+            { text: "Por tentar explorar a Floresta Proibida", correct: 3 },
         ]
     },
     {
-        question: "Qual dos itens abaixo NÃO é uma horcrux?",
+        question: "Um trasgo invadiu a escola e entrou em um dos banheiros. Lá estão dois alunos, uma pessoa que você detesta e uma pessoa que você nunca viu na vida. O que você faz?",
         answers: [
-            { text: "O Medalhão de Slytherin", correct: 3 },
-            { text: "A Cobra Nagini", correct: 1 },
-            { text: "o livro do Príncipe Mestiço", correct: 2 },
-            { text: "Harry Potter", correct: 4 },
+            { text: "Reúne alguns amigos e tenta deter o trasgo", correct: 3 },
+            { text: "Nada, afinal, você não tem poder suficiente para detê-lo", correct: 1 },
+            { text: "Nada, e torce para que o trasgo ensine uma lição no seu rival", correct: 2 },
+            { text: "Invade o banheiro sozinho e tenta deter o trasgo com as armas que você tem", correct: 4 },
         ]
     },
 ];
@@ -172,7 +172,10 @@ function selectAnswer(e) {
 function showScore() {
     clean();
         if(corvinal > sonserina && corvinal > grifinoria && corvinal > lufalufa){
-            questionElement.innerHTML = `Parabéns! você é da Corvinal!`;
+            questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
+            Bem vindo a Sonserina!<br><br>
+            "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
+            - O Chapéu Sevaror`;
         }
         else if(sonserina > corvinal && sonserina > grifinoria && sonserina > lufalufa){
             questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
@@ -181,16 +184,45 @@ function showScore() {
             - O Chapéu Sevaror`;
         }
         else if(grifinoria > corvinal && grifinoria > sonserina && grifinoria > lufalufa){
-            questionElement.innerHTML = `Parabéns! você é da Grifinória!`;
+            questionElement.innerHTML = `Coragem e bravura <br>
+            Bem vindo a Grifinória!<br><br>
+            "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
+            - O Chapéu Sevaror`;
         }
         else if(lufalufa > corvinal && lufalufa > sonserina && lufalufa > grifinoria){
-            questionElement.innerHTML = `Parabéns! você é da Lufa-lufa!`;
+            questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
+            Bem vindo a Sonserina!<br><br>
+            "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
+            - O Chapéu Sevaror`;
         }
         else{
             questionElement.innerHTML = `O chapéu sevaror ainda está se decidindo, você pode fazer o teste novamente?`;
         }
     nextButton.innerHTML = "Jogar Quiz de conhecimentos";
     nextButton.style.display = "block";
+    fetch("/score/scoreQuiz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          scoreServer: score,
+          idUsuarioServer: idUsuario
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+    
+          if (resposta.ok) {
+            console.log(resposta);
+    
+          } else {
+            throw "Houve um erro ao tentar realizar o registro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
 }   
 
 function handleNextButton() {
@@ -207,7 +239,7 @@ nextButton.addEventListener("click", () => { //adicionar uma função ao clicar 
         handleNextButton();
     }
     else { // o botão chama a função para começar o jogo de novo
-        btn.href
+        nextButton.href = "quizz.html";
     }
 });
 startQuiz();

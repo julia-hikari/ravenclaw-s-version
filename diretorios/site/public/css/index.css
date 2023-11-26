@@ -155,57 +155,105 @@
 /* page filme */
 .filmes {
     display: flex;
-    height: 1000px;
+    height: 1800px;
     width: 100%;
     justify-content: center;
     align-items: center;
     background-image: url(../assets/backgroundFilmes.png);
+}
 
-    & .containerFilmes {
-        display: flex;
-        width: 85%;
-        height: 90%;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
 
-    }
+.filmes .containerFilmes1 {
+    display: flex;
+    width: 95%;
+    height: 95%;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
-    & .boxFilmes {
-        display: flex;
-        width: 250px;
-        height: 500px;
-    }
+.filmes .containerFilmes2 {
+    display: flex;
+    width: 95%;
+    height: 95%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.containerFilmes1 .boxFilmes {
+    display: flex;
+    width: 90%;
+    height: 500px;
+    flex-direction: row;
+    margin-left: 50px;
 
     & img {
-        width: 250px;
+        width: 240px;
         height: 320px;
     }
 }
 
-.boxFilmes h1 {
-    font-family: 'Merriweather', serif;
-    font-size: small;
-    position: absolute;
-    justify-self: center;
-    align-self: center;
-    width: 250px;
-    padding-left: 5px;
-    padding-top: 300px;
-    color: #fff;
+.containerFilmes2 .boxFilmes {
+    display: flex;
+    width: 90%;
+    height: 500px;
+    flex-direction: row;
+
+    & img {
+        width: 240px;
+        height: 320px;
+    }
 }
 
-.boxFilmes h2 {
+.containerFilmes1 .boxFilmes h1 {
     font-family: 'Merriweather', serif;
-    font-size: small;
-    position: absolute;
-    justify-self: center;
-    align-self: center;
-    width: 250px;
-    padding-left: 5px;
-    padding-top: 230px;
+    font-size: 15px;
+    width: 175px;
+    padding-left: 25px;
     color: #fff;
+
 }
+
+.containerFilmes2 .boxFilmes h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 15px;
+    width: 175px;
+    padding-left: 25px;
+    color: #fff;
+
+}
+
+#f1 {
+    box-shadow: 15px 10px 50px rgb(88, 115, 252);
+}
+
+#f2 {
+    box-shadow: 15px 10px 50px rgb(62, 247, 207);
+}
+
+#f3 {
+    box-shadow: 15px 10px 50px rgb(247, 235, 62);
+}
+
+#f4 {
+    box-shadow: 15px 10px 50px rgb(164, 62, 247);
+}
+
+#f5 {
+    box-shadow: 15px 10px 50px rgb(53, 165, 230);
+}
+
+#f6 {
+    box-shadow: 17px 13px 50px rgb(135, 138, 151);
+}
+
+#f7 {
+    box-shadow: 15px 10px 50px rgb(120, 192, 54);
+}
+
+#f8 {
+    box-shadow: 18px 16px 50px rgb(11, 12, 65);
+}
+
 
 /* Page Curiosidades poções*/
 .potionsSection {
@@ -383,12 +431,13 @@
 
     & .caixaTexto {
         display: flex;
-        animation: left ;
+        animation: left;
         animation-timeline: view();
         animation-range: cover -10% cover 40%;
     }
 }
-.legacy2 .caixaTexto p{
+
+.legacy2 .caixaTexto p {
     width: 400px;
     color: white;
     font-family: 'Scope One';
@@ -402,7 +451,7 @@
     justify-content: center;
     height: 100vh;
 
-    & .caixaTexto{
+    & .caixaTexto {
         display: flex;
         justify-content: center;
         animation: up linear both;
@@ -411,7 +460,7 @@
     }
 }
 
-.legacy3 .caixaTexto p{
+.legacy3 .caixaTexto p {
     width: 800px;
     color: white;
     font-family: 'Scope One';
@@ -427,7 +476,7 @@
     align-items: center;
     height: 100vh;
 
-    & .caixaTexto{
+    & .caixaTexto {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -437,7 +486,7 @@
     }
 }
 
-.legacy4 .caixaTexto p{
+.legacy4 .caixaTexto p {
     width: 800px;
     color: white;
     font-family: 'Scope One';
@@ -452,7 +501,7 @@
     height: 100vh;
     justify-content: center;
 
-    & .caixaTexto{
+    & .caixaTexto {
         display: flex;
         width: 90%;
         justify-content: space-between;
@@ -462,37 +511,136 @@
     }
 }
 
-.legacy5 .caixaTexto p{
+.legacy5 .caixaTexto p {
     width: 300px;
     color: white;
     font-family: 'Scope One';
     font-size: 28px;
 }
 
-@keyframes scroll{
-    from{
+@keyframes scroll {
+    from {
         background-position: 60% 0;
     }
+
     to {
         background-position: 50% 100%;
     }
 }
 
-@keyframes up{
+@keyframes up {
     from {
         opacity: 0;
         transform: translateY(100%);
     }
+
     to {
         transform: translateY(0%);
     }
 }
-@keyframes left{
+
+@keyframes left {
     from {
         opacity: 0;
         transform: translateX(-100%);
     }
+
     to {
         transform: translateX(0);
+    }
+}
+
+/* pagina feitiços */
+.containerSpells {
+    width: 100%;
+    display: flex;
+    background-color: #000;
+    height: 2000px;
+}
+
+.spells {
+    display: flex;
+    width: 90%;
+    height: 95%;
+    flex-wrap: wrap;
+}
+
+#lumos {
+    width: 95%;
+    height: 300px;
+    display: flex;
+    margin-left: 50px;
+    margin-top: 240px;
+
+    & img {
+        width: 160px;
+        height: 215px;
+        align-self: center;
+        position: absolute;
+        padding-bottom: 230px;
+        padding-left: 30px;
+    }
+
+    & h1 {
+        font-size: 20px;
+        color: #fff;
+        font-family: 'Scope One';
+        width: 80%;
+        height: 12%;
+        padding-left: 250px;
+        padding-top: 20px;
+    }
+}
+
+#accio {
+    width: 95%;
+    height: 300px;
+    display: flex;
+    margin-left: 20px;
+    padding-bottom: 1000px;
+
+    & img {
+        width: 250px;
+        height: 210px;
+        align-self: center;
+        position: absolute;
+        padding-bottom: 230px;
+    }
+
+    & h1 {
+        font-size: 20px;
+        color: #fff;
+        font-family: 'Scope One';
+        width: 80%;
+        height: 12%;
+        padding-left: 280px;
+    }
+}
+
+#patronum {
+    width: 95%;
+    height: 300px;
+    display: flex;
+    margin-left: 20px;
+    padding-top: 860px;
+    position: absolute;
+
+
+    & img {
+        width: 200px;
+        height: 220px;
+        align-self: center;
+        position: absolute;
+        padding-left: 30px;
+        padding-bottom: 100px;
+    }
+
+    & h1 {
+        font-size: 20px;
+        color: #fff;
+        font-family: 'Scope One';
+        width: 80%;
+        height: 12%;
+        padding-left: 280px;
     }
 }

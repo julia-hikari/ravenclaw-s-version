@@ -30,11 +30,11 @@
   <!--header fim-->
 
   <div class="cadastro">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+    <div class="alert">
+      <div class="cardMensagem" id="cardLogin">
+          <span id="mensagem"></span>
       </div>
-    </div>
+  </div>
     <div class="container">
       <div class="card card-cadastro">
         <h2>Bem-vindo!</h2>
@@ -79,11 +79,7 @@
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div>
-
-        <div id="div_erros_login"></div>
+        <div id="loader" class="custom-loader"></div>
       </div>
     </div>
   </div>
@@ -115,40 +111,33 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+     alert('erro ao cadastrar, campos não preenchidos')
 
       finalizarAguardar();
       return false;
     }
     else if (usuarioVar.indexOf('!') > 0|| usuarioVar.indexOf('#') > 0 || usuarioVar.indexOf('$') > 0 || usuarioVar.indexOf('%') > 0 || usuarioVar.indexOf('&') > 0 || usuarioVar.indexOf('*') > 0 || usuarioVar.indexOf('(') > 0 || usuarioVar.indexOf(') > 0') > 0 || usuarioVar.indexOf('"') > 0 || usuarioVar.indexOf('/') > 0 || usuarioVar.indexOf('?') > 0 || usuarioVar.indexOf('>') > 0 || usuarioVar.indexOf('<') > 0 || usuarioVar.indexOf('^') > 0 || usuarioVar.indexOf('´') > 0 || usuarioVar.indexOf('`') > 0 || usuarioVar.indexOf(',') > 0 || usuarioVar.indexOf('+') > 0 || usuarioVar.indexOf('=') > 0 || usuarioVar.indexOf('°') > 0 || usuarioVar.indexOf(';') > 0 || usuarioVar.indexOf(':') > 0 || usuarioVar.length > 20 || usuarioVar.indexOf('..') > 0
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para usuário inválido)";
+      alert('erro ao cadastrar, usuário inválido')
 
       finalizarAguardar();
       return false;
     } 
     else if (senhaVar.length < 6 ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para senha inválida)";
+      alert('erro ao cadastrar, senha min. 6 caracteres')
 
       finalizarAguardar();
       return false;
     }
-    else if(senhaVar.indexOf('@') < 0 && senhaVar.indexOf('*') < 0 && senhaVar.indexOf('!')){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para senha sem caracter especial)";
+    else if(senhaVar.indexOf('@') < 0 && senhaVar.indexOf('*') < 0 && senhaVar.indexOf('!') && senhaVar.indexOf('?') && senhaVar.indexOf('$') && senhaVar.indexOf('&')){
+      alert('erro ao cadastrar, min 1 caracter especial')
 
       finalizarAguardar();
       return false;
     }
     else {
       setInterval(sumirMensagem, 1000);
+      loader.style.display = "block"  
     }
 
     // Enviando o valor da nova input
@@ -174,10 +163,10 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          cardLogin.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          mensagem.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login";
 
           setTimeout(() => {
             window.location = "login.html";
@@ -191,6 +180,7 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
+        loader.style.display = "none"  
         finalizarAguardar();
       });
 
@@ -214,6 +204,6 @@
   // }
 
   function sumirMensagem() {
-    cardErro.style.display = "none";
+    cardLogin.style.display = "none";
   }
 </script>

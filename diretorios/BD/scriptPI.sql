@@ -25,6 +25,7 @@ create table usuario(
 idUsuario int primary key auto_increment,
 nome varchar(45),
 sobrenome varchar(45),
+usuario varchar(45),
 email varchar(100),
 dtNasc date,
 cidade varchar(45),
@@ -55,4 +56,3 @@ dtFeedback datetime,
 constraint fkUsuarioFeed foreign key (fkUsuario) references usuario(idUsuario),
 constraint fkQuizzFeed foreign key (fkQuizz) references quizz(idQuizz)
 );
-drop database projetohp;
