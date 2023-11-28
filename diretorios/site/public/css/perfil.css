@@ -16,6 +16,7 @@
     height: 250px;
     align-items: center;
     margin-top: 100px;
+    margin-right: 25px;
     background-color: rgba(240, 255, 255, 0.61);
     border-radius: 10px;
     display: flex;
@@ -30,7 +31,7 @@
 .membrosCasa {
     display: flex;
     width: 750px;
-    height: 450px;
+    height: 250px;
     margin: 100px;
     justify-content: space-between;
     background-color: rgba(25, 10, 110, 0.541);
