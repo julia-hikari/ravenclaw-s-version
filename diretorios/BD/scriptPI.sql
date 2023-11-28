@@ -4,15 +4,7 @@ use projetohp;
 create table casaHogwarts(
 idCasa int primary key auto_increment,
 nome varchar(45),
-descricao varchar(100)
-);
-
-create table pontosTeste(
-idTeste int primary key auto_increment,
-corvinal int,
-grifinoria int,
-sonserina int,
-lufalufa int
+descricao varchar(500)
 );
 
 create table quizz(
@@ -31,10 +23,8 @@ dtNasc date,
 cidade varchar(45),
 uf char(2),
 fkCasa int,
-fkTesteCasa int,
 senha varchar(25),
-constraint fkCasa foreign key (fkCasa) references casaHogwarts(idCasa),
-constraint fkTesteCasa foreign key (fkTesteCasa) references pontosTeste(idTeste)
+constraint fkCasa foreign key (fkCasa) references casaHogwarts(idCasa)
 );
 
 create table pontuacaoQuizz(

@@ -25,6 +25,7 @@ function openProfile() {
     window.location = "perfil.html";
 }
 
+
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("loader");

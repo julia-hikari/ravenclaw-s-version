@@ -1,8 +1,67 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Merriweather:wght@700&family=Scope+One&family=Special+Elite&display=swap');
+
+* {
     margin: 0;
 }
-.containerPai{
+
+.containerPai {
     width: 100vw;
     height: 100vh;
-    background-color: yellow;
+    background-color: rgba(211, 211, 255, 0.938);
+    display: flex;
+}
+
+.kpiCasa {
+    width: 350px;
+    height: 250px;
+    align-items: center;
+    margin-top: 100px;
+    background-color: rgba(240, 255, 255, 0.61);
+    border-radius: 10px;
+    display: flex;
+}
+
+.kpiCasa h1 {
+    font-family: 'Scope One';
+    align-self: flex-start;
+    margin: 10px;
+}
+
+.membrosCasa {
+    display: flex;
+    width: 750px;
+    height: 450px;
+    margin: 100px;
+    justify-content: space-between;
+    background-color: rgba(25, 10, 110, 0.541);
+    border-radius: 10px;
+}
+
+.membrosCasa h1 {
+    font-family: 'Scope One';
+    align-self: flex-start;
+    justify-self: center;
+    margin: 10px;
+}
+
+.banner{
+    align-items: center;
+    margin-top: 90px;
+
+}
+
+.rav {
+    background-color: rgba(35, 39, 255, 0.938);
+}
+
+.sly {
+    background-color: rgba(0, 141, 19, 0.938);
+}
+
+.huf {
+    background-color: rgba(255, 251, 35, 0.938);
+}
+
+.gry {
+    background-color: rgba(216, 10, 10, 0.938);
 }

@@ -95,12 +95,14 @@ var questions = [
 var questionElement = document.getElementById("question");
 var answerButtons = document.getElementById("answer-buttons");
 var nextButton = document.getElementById("next-button");
+var idUsuario = sessionStorage.ID_USUARIO;
 
 var questionNow = 0;
 var corvinal = 0;
 var grifinoria = 0;
 var sonserina = 0;
 var lufalufa = 0;
+var casa = 0;
 
 function startQuiz() {
     questionNow = 0;
@@ -108,6 +110,7 @@ function startQuiz() {
     grifinoria = 0;
     sonserina = 0;
     lufalufa = 0;
+    casa = 0;
     nextButton.innerHTML = "Proximo";
     showQuestion();
 }
@@ -161,76 +164,88 @@ function selectAnswer(e) {
     }
 
     Array.from(answerButtons.children).forEach(button => { // para cada botão:
-        if (button.dataset.correct === 1) { // busca um botão e adiciona a class xpto
-            button.classList.add("xpto");
-        }
+        // if (button.dataset.correct === 1) { // busca um botão e adiciona a class xpto
+        //     button.classList.add("xpto");
+        // }
         button.disabled = true; // desabilita a funcionalidade do botão para não ser clicado novamente
     });
     nextButton.style.display = "block"; // vai mostrar o botão 'próximo'
 }
 
-function showScore() {
+function showResult() {
     clean();
-        if(corvinal > sonserina && corvinal > grifinoria && corvinal > lufalufa){
-            questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
+    if (corvinal > sonserina && corvinal > grifinoria && corvinal > lufalufa) {
+        questionElement.innerHTML = `aprendizagem, originalidade, sabedoria e intelecto <br>
+            Bem vindo a Corvinal!<br><br>
+            "a velha e sábia Corvinal, <br>
+            A casa dos que têm a mente sempre alerta, <br>
+            Onde os homens de grande espírito e saber sempre encontrarão companheiros em seus iguais."<br>
+            - O Chapéu Seletor`;
+            casa = 1
+    }
+    else if (sonserina > corvinal && sonserina > grifinoria && sonserina > lufalufa) {
+        questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
             Bem vindo a Sonserina!<br><br>
             "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
-            - O Chapéu Sevaror`;
-        }
-        else if(sonserina > corvinal && sonserina > grifinoria && sonserina > lufalufa){
-            questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
-            Bem vindo a Sonserina!<br><br>
-            "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
-            - O Chapéu Sevaror`;
-        }
-        else if(grifinoria > corvinal && grifinoria > sonserina && grifinoria > lufalufa){
-            questionElement.innerHTML = `Coragem e bravura <br>
+            - O Chapéu Seletor`;
+            casa = 2
+    }
+    else if (grifinoria > corvinal && grifinoria > sonserina && grifinoria > lufalufa) {
+        questionElement.innerHTML = `Coragem, bravura e honra <br>
             Bem vindo a Grifinória!<br><br>
-            "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
-            - O Chapéu Sevaror`;
-        }
-        else if(lufalufa > corvinal && lufalufa > sonserina && lufalufa > grifinoria){
-            questionElement.innerHTML = `Orgulho, Ambição e Astucia <br>
-            Bem vindo a Sonserina!<br><br>
-            "talvez na Sonserina, você fará amigos de verdade. Essas pessoas astutas usam todos os meios para atingir seus objetivos."<br>
-            - O Chapéu Sevaror`;
-        }
-        else{
-            questionElement.innerHTML = `O chapéu sevaror ainda está se decidindo, você pode fazer o teste novamente?`;
-        }
+            "Quem sabe sua morada é a Grifinória <br>
+            Casa onde habitam os corações indômitos. <br>
+            Ousadia e sangue-frio e nobreza <br>
+            Destacam os alunos da Grifinória dos demais."<br>
+            - O Chapéu Seletor`;
+            casa = 4
+    }
+    else if (lufalufa > corvinal && lufalufa > sonserina && lufalufa > grifinoria) {
+        questionElement.innerHTML = `Dedicação, lealdade e honestidade <br>
+            Bem vindo a Lufa-lufa!<br><br>
+            "Quem sabe é na Lufa-Lufa que você vai morar, <br>
+            Onde seus moradores são justos e leais <br>
+            Pacientes, sinceros, sem medo da dor."<br>
+            - O Chapéu Seletor`;
+            casa = 3
+    }
+    else {
+        questionElement.innerHTML = `O chapéu seletor ainda está se decidindo, você pode fazer o teste novamente?`;
+    }
     nextButton.innerHTML = "Jogar Quiz de conhecimentos";
     nextButton.style.display = "block";
-    fetch("/score/scoreQuiz", {
+    fetch("/teste/houseUser", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          scoreServer: score,
-          idUsuarioServer: idUsuario
+            casaServer: casa,
+            idUsuarioServer: idUsuario
         }),
-      })
+    })
         .then(function (resposta) {
-          console.log("resposta: ", resposta);
-    
-          if (resposta.ok) {
-            console.log(resposta);
-    
-          } else {
-            throw "Houve um erro ao tentar realizar o registro!";
-          }
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                sessionStorage.CASA_USUARIO = casa;
+                console.log(resposta);
+
+            } else {
+                throw "Houve um erro ao tentar realizar o registro!";
+            }
         })
         .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
+            console.log(`#ERRO: ${resposta}`);
         });
-}   
+}
 
 function handleNextButton() {
     questionNow++;
     if (questionNow < questions.length) {
         showQuestion();
     } else {
-        showScore();
+        showResult();
     }
 }
 

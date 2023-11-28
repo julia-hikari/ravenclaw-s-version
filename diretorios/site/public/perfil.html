@@ -9,24 +9,37 @@
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/header.css" />
     <script src="js/sessao.js"></script>
+    <script src="js/perfil.js"></script>
 </head>
 
-<body onload="validarSessao()">
+<body onload="getData(),validarSessao(), selectHouse()">
     <div class="header">
         <div class="containerHeader">
             <ul class="listHeader">
-                <li><a href="#pageHome" class="linkList">Home</a></li>
+                <li><a href="index.html" class="linkList">Home</a></li>
                 <li><a href="login.html" id="quiz" class="linkList">Quiz</a></li>
                 <li><a href="login.html" id="selecao" class="linkList">Seleção de casa</a></li>
-                <li><a href="#legacy" class="linkList">Hogwarts Legacy</a></li>
-                <li><a href="" class="linkList">Feitiços</a></li>
-                <li><a href="#pageCuriosities" class="linkList">Curiosidades</a></li>
+                <li><a href="index.html" class="linkList">Hogwarts Legacy</a></li>
+                <li><a href="index.html" class="linkList">Feitiços</a></li>
+                <li><a href="index.html" class="linkList">Curiosidades</a></li>
                 <li><a href="cadastro.html" id="cadastro" class="linkList">Inscrever-se</a></li>
                 <li><a href="login.html" id="login" class="linkList">Entrar</a></li>
             </ul>
         </div>
     </div>
-    <div class="containerPai">
-        <div class="box"></div>
+    <div id="containerDash" class="containerPai">
+        <div id="banner"><img class="banner" src="assets/giphy.gif"></div>
+        <div class="kpiCasa">
+            <h1 id="kpi1">Atualmente, temos X membros cadastrados na xptoCasa</h1>
+        </div>
+        <div class="kpiCasa">
+            <h1 id="kpi2">A média de acertos no Quiz dos integrantes da sua casa é <span id="spanMedia"></span></h1>
+        </div>
+        <div class="membrosCasa">
+            <h1>Quem também está na minha casa?</h1>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 </body>
+</html>

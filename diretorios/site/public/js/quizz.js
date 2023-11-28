@@ -134,9 +134,9 @@ function clean() { //  verifica se o elemento answerButtons tem algum filho
   }
 }
 
-// na função selectAnswer, adicionei o parâmetro 'e', que é um objeto que representa o evento de clique no botão de resposta
+// na função selectAnswer, adicionei o parâmetro 'event', que é um objeto que representa o evento de clique no botão de resposta 
 function selectAnswer(e) {
-  var selectedBtn = e.target; // criando var selectedBtn e atribuindo a ela a propriedade 'target' do objeto 'e', que é o elemento HTML que foi clicado pelo usuário
+  var selectedBtn = e.target; // criando var selectedBtn e atribuindo a ela a propriedade 'e.target'. o event.target representa um elemento HTML que causou um evento
   // A propriedade 'target' retorna o elemento onde ocorreu o evento
   var isCorrect = selectedBtn.dataset.correct === "true"; //O dataset é uma propriedade HTML que permite armazenar dados personalizados dentro do elemento HTML 
   if (isCorrect) {
@@ -146,6 +146,7 @@ function selectAnswer(e) {
   else {
     selectedBtn.classList.add("incorrect") // se não, adiciona a classe 'incorrect'
   }
+}
 
   // método 'forEach' para percorrer o array e executar uma função anônima que recebe um parâmetro chamado button, que é o elemento do botão atual
   Array.from(answerButtons.children).forEach(button => { // função 'Array.from' para converter a propriedade 'children' do elemento 'answerButtons' em um array. O children contém todos os elementos HTML que são filhos do elemento answerButtons, ou seja, todos os botões de resposta
@@ -155,7 +156,6 @@ function selectAnswer(e) {
     button.disabled = true; // desabilita a funcionalidade do botão para não ser clicado novamente
   });
   nextButton.style.display = "block"; // atribui o valor "block" para mostrar o botão 'próximo'
-}
 
 function showScore() {
   clean();

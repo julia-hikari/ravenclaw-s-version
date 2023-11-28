@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Scope+One&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Merriweather:wght@700&family=Scope+One&family=Special+Elite&display=swap');
 
 body {
   margin: 0;
@@ -118,7 +118,7 @@ body {
   border-radius: 50%;
   border: inherit;
   animation: inherit;
-  animation-duration: 2s;
+  animation-duration: 5s;
 }
 
 .custom-loader:after {
