@@ -13,7 +13,7 @@
 
 .kpiCasa {
     width: 350px;
-    height: 250px;
+    height: 150px;
     align-items: center;
     margin-top: 100px;
     margin-right: 25px;
@@ -24,8 +24,9 @@
 
 .kpiCasa h1 {
     font-family: 'Scope One';
-    align-self: flex-start;
+    align-self: center;
     margin: 10px;
+    font-size: larger;
 }
 
 .membrosCasa {
