@@ -229,7 +229,9 @@ function showResult() {
 
             if (resposta.ok) {
                 sessionStorage.CASA_USUARIO = casa;
-                console.log(resposta);
+                console.log(casa);
+                var house = sessionStorage.CASA_USUARIO;
+                console.log(house)
 
             } else {
                 throw "Houve um erro ao tentar realizar o registro!";
@@ -254,7 +256,7 @@ nextButton.addEventListener("click", () => { //adicionar uma função ao clicar 
         handleNextButton();
     }
     else { // o botão chama a função para começar o jogo de novo
-        nextButton.href = "quizz.html";
+        nextButton
     }
 });
 startQuiz();

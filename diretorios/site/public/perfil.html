@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/header.css" />
     <script src="js/sessao.js"></script>
-    <script src="js/perfil.js"></script>
+    <!-- <script src="js/perfil.js"></script> -->
+
 </head>
 
-<body onload="getData(),validarSessao(), selectHouse()">
+<body onload="getData(),validarSessao(), selectHouse(), getDataGraph()">
     <div class="header">
         <div class="containerHeader">
             <ul class="listHeader">
@@ -27,20 +28,164 @@
             </ul>
         </div>
     </div>
-    <div id="containerDash" class="containerPai">
-        <div id="banner"><img class="banner" src="assets/giphy.gif"></div>
-        <div class="kpiCasa">
-            <h1 id="kpi1">Atualmente, temos X membros cadastrados na xptoCasa</h1>
+    <div class="containerPai">
+        <div id="banner" class="divBanner">
+            <img class="banner" src="assets/giphy.gif">
         </div>
-        <div class="kpiCasa">
-            <h1 id="kpi2">A média de acertos no Quiz dos integrantes da sua casa é <span id="spanMedia"></span></h1>
+
+        <div class="backgroundKpi">
+            <div class="divKpi">
+                <div class="kpiCasa">
+                    <h1 id="kpi1">Atualmente, temos X membros cadastrados na xptoCasa</h1>
+                </div>
+                <div class="kpiCasa">
+                    <h1 id="kpi2">A média de acertos no Quiz dos integrantes da sua casa é <span id="spanMedia"></span>
+                    </h1>
+                </div>
+                <div id="kpi3" class="kpiCasa">
+                    <h1>Quem também está na minha casa?</h1>
+                    <div class="resultado">
+                        <p id="users">a</p>
+                    </div>
+                </div>
+            </div>
+            <div class="graph">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
         </div>
-        <div class="membrosCasa">
-            <h1>Quem também está na minha casa?</h1>
-            <span></span>
-            <span></span>
-        </div>
+
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
+<script>
+    
+var house = sessionStorage.CASA_USUARIO;
+console.log(house)
+
+function selectHouse() {
+
+    if (house == 1) {
+        document.body.style = "background-color: rgba(35, 39, 255, 0.938);"
+        banner.innerHTML = `<img class="banner" src="assets/giphy.gif">`
+        kpi1.innerHTML = `Atualmente, temos <span id="spanKPI1"></span> membros cadastrados na Corvinal`
+        kpi2.innerHTML = `A média de acertos no Quiz dos integrantes da sua casa é <span id="spanMedia"></span>`
+    }
+    else if (house == 2) {
+        document.body.style = "background-color: rgba(0, 141, 19, 0.938);"
+        banner.innerHTML = `<img class="banner" src="assets/sly.gif">`
+        kpi1.innerHTML = `Atualmente, temos <span id="spanKPI1"></span> membros cadastrados na Sonserina`
+        kpi2.innerHTML = `A média de acertos no Quiz dos integrantes da sua casa é <span id="spanMedia"></span>`
+    }
+    else if (house == 3) {
+        document.body.style = "background-color: rgba(255, 251, 35, 0.938);"
+        banner.innerHTML = `<img class="banner" src="assets/huff.gif">`
+        kpi1.innerHTML = `Atualmente, temos <span id="spanKPI1"></span> membros cadastrados na Lufa-lufa`
+        kpi2.innerHTML = `A média de acertos no Quiz dos integrantes da sua casa é <span id="spanMedia"></span>`
+    }
+    else {
+        document.body.style = "background-color: rgba(216, 10, 10, 0.938);"
+        banner.innerHTML = `<img class="banner" src="assets/gry.gif">`
+        kpi1.innerHTML = `Atualmente, temos <span id="spanKPI1"></span> membros cadastrados na Grifinória`
+        kpi2.innerHTML = `A média de acertos no Quiz dos integrantes da sua casa é <span id="spanMedia"></span>`
+    }
+    
+}
+function getData(){
+    console.log('chegou ali')
+    fetch("/dash/searchData", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            casaServer: house
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            console.log(resposta);
+            resposta.json().then(json => {
+                spanKPI1.innerHTML = json.houseUsers
+                spanMedia.innerHTML = json.avgpoints
+            })
+        } else {
+            console.log("Houve um erro ao tentar realizar coletar os dados!");
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+    return false;
+}
+    const ctx = document.getElementById('myChart');
+    var corvinal = 0
+    var sonserina = 0
+    var lufa = 0
+    var grifinoria = 0
+
+    function getDataGraph(){
+        console.log("AAAAAAA")
+    fetch("/dash/searchData", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            casaServer: house
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            console.log(resposta);
+            resposta.json().then(json => {
+                corvinal = json.qtdCorvinal
+                sonserina = json.qtdSonserina
+                lufa = json.qtdLufa
+                grifinoria = json.qtdGrifinoria
+
+                setTimeout(()=> {
+                    plotarGrafico()
+
+                }, 10)
+            })
+        } else {
+            console.log("Houve um erro ao tentar realizar coletar os dados!");
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+    return false;
+}
+
+function plotarGrafico(){
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: [
+    'Corvinal',
+    'Sonserina',
+    'Lufa-lufa',
+    'Grifinória'
+  ],
+    datasets: [{
+    label: 'quantidade de membros',
+    data: [corvinal, sonserina, lufa, grifinoria],
+    backgroundColor: [
+      'rgba(35, 39, 255)',
+      'rgba(0, 141, 19, 0.938)',
+      'rgba(255, 251, 35, 0.938)',
+      'rgba(216, 10, 10, 0.938)'
+    ],
+    hoverOffset: 4
+  }]
+  }
+});
+}
+</script>
