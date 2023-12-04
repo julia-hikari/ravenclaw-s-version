@@ -157,7 +157,7 @@ function getData(){
     })
     return false;
 }
-
+Chart.defaults.color = '#fff';
 function plotarGrafico(){
 new Chart(ctx, {
   type: 'doughnut',
@@ -179,7 +179,18 @@ new Chart(ctx, {
     ],
     hoverOffset: 4
   }]
-  }
+  },
+  options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            }
+        }
 });
 }
 </script>

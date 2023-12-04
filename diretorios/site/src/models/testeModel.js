@@ -9,7 +9,18 @@ function house(casa, idUsuario){
     return database.executar(instrucao);
 }
 
+function feedbackTest(idUsuario, casa, feedback){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function house(): ", casa)
+    var instrucao = `
+    insert into feedback (fkUsuario, fkCasa, nota) values
+    ('${idUsuario}','${casa}','${feedback}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 
 module.exports = {
-    house
+    house,
+    feedbackTest
 };

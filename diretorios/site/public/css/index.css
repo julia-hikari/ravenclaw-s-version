@@ -516,6 +516,12 @@
     color: white;
     font-family: 'Scope One';
     font-size: 28px;
+    text-shadow: #0a0224;
+}
+
+#pText{
+    font-size: 32px;
+    text-shadow: #0a0224;
 }
 
 @keyframes scroll {
@@ -555,7 +561,7 @@
     width: 100%;
     display: flex;
     background-color: #000;
-    height: 2000px;
+    height: 1500px;
 }
 
 .spells {
@@ -642,5 +648,42 @@
         width: 80%;
         height: 12%;
         padding-left: 280px;
+    }
+}
+#protego {
+    width: 95%;
+    height: 300px;
+    display: flex;
+    margin-left: 20px;
+    padding-top: 1250px;
+    position: absolute;
+
+    & img {
+        width: 250px;
+        height: 210px;
+        align-self: center;
+        position: absolute;
+        padding-bottom: 230px;
+    }
+
+    & h1 {
+        font-size: 20px;
+        color: #fff;
+        font-family: 'Scope One';
+        width: 80%;
+        height: 12%;
+        padding-left: 280px;
+    }
+}
+
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 450px;
+    background-color: #000;
+    & p{
+        font-size: 22px;
+        color: #e7e7e7;
     }
 }

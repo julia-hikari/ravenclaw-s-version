@@ -27,7 +27,7 @@ senha varchar(25),
 constraint fkCasa foreign key (fkCasa) references casaHogwarts(idCasa)
 );
 
-create table pontuacaoQuizz(
+create table tentativa(
 idResposta int primary key auto_increment,
 fkUsuario int not null,
 fkQuizz int not null,
@@ -40,7 +40,7 @@ constraint fkResposta foreign key (fkQuizz) references quizz(idQuizz)
 create table feedback(
 idFeedback int primary key auto_increment,
 fkUsuario int,
-fkQuizz int,
+fkCasa int,
 nota int,
 dtFeedback datetime,
 constraint fkUsuarioFeed foreign key (fkUsuario) references usuario(idUsuario),

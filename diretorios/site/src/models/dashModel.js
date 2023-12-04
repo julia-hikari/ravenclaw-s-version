@@ -12,8 +12,8 @@ function countHouse(casa) {
 function avgquiz(casa) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function avgquiz(): ", casa)
     var instrucao = `
-    select round(avg(pontuacaoQuizz.pontuacao),1) as avgpoints
-    from pontuacaoQuizz join usuario on fkUsuario = idUsuario
+    select round(avg(tentativa.pontuacao),1) as avgpoints
+    from tentativa join usuario on fkUsuario = idUsuario
     where fkCasa = '${casa}';
 
     `;

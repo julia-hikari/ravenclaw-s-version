@@ -91,6 +91,17 @@ var questions = [
             { text: "Invade o banheiro sozinho e tenta deter o trasgo com as armas que você tem", correct: 4 },
         ]
     },
+    {
+        question: "Antes de finalizarmos, dê uma nota de o á 5 para o nosso teste! Sendo 0 muito insatisfeito, e 5 muito satisfeito",
+        answers: [
+            { text: "0", correct: 5 },
+            { text: "1", correct: 6 },
+            { text: "2", correct: 7 },
+            { text: "3", correct: 8 },
+            { text: "4", correct: 9 },
+            { text: "5", correct: 10 },
+        ]
+    },
 ];
 var questionElement = document.getElementById("question");
 var answerButtons = document.getElementById("answer-buttons");
@@ -103,6 +114,7 @@ var grifinoria = 0;
 var sonserina = 0;
 var lufalufa = 0;
 var casa = 0;
+var feedback = 0;
 
 function startQuiz() {
     questionNow = 0;
@@ -111,6 +123,7 @@ function startQuiz() {
     sonserina = 0;
     lufalufa = 0;
     casa = 0;
+    feedback = 0;
     nextButton.innerHTML = "Proximo";
     showQuestion();
 }
@@ -146,6 +159,12 @@ function selectAnswer(e) {
     var hufflepuff = selectedBtn.dataset.correct === '3';
     var slytherin = selectedBtn.dataset.correct === '2';
     var gryffindor = selectedBtn.dataset.correct === '4';
+    var zero = selectedBtn.dataset.correct === '5';
+    var one = selectedBtn.dataset.correct === '6';
+    var two = selectedBtn.dataset.correct === '7';
+    var three = selectedBtn.dataset.correct === '8';
+    var four = selectedBtn.dataset.correct === '9';
+    var five = selectedBtn.dataset.correct === '10';
     if (ravenclaw) {
         selectedBtn.classList.add("rav"); // se a resposta for corvinal adiciona a classe 'rav'
         corvinal++;
@@ -161,6 +180,30 @@ function selectAnswer(e) {
     else if (gryffindor) {
         selectedBtn.classList.add("gry");
         grifinoria++;
+    }
+    else if (zero) {
+        selectedBtn.classList.add("sly");
+        feedback = 0;
+    }
+    else if (one) {
+        selectedBtn.classList.add("sly");
+        feedback = 1;
+    }
+    else if (two) {
+        selectedBtn.classList.add("sly");
+        feedback = 2;
+    }
+    else if (three) {
+        selectedBtn.classList.add("sly");
+        feedback = 3;
+    }
+    else if (four) {
+        selectedBtn.classList.add("sly");
+        feedback = 4;
+    }
+    else if (five) {
+        selectedBtn.classList.add("sly");
+        feedback = 5;
     }
 
     Array.from(answerButtons.children).forEach(button => { // para cada botão:
@@ -230,9 +273,6 @@ function showResult() {
             if (resposta.ok) {
                 sessionStorage.CASA_USUARIO = casa;
                 console.log(casa);
-                var house = sessionStorage.CASA_USUARIO;
-                console.log(house)
-
             } else {
                 throw "Houve um erro ao tentar realizar o registro!";
             }
@@ -240,6 +280,31 @@ function showResult() {
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
+        fetch("/teste/feedbackUser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                casaServer: casa,
+                idUsuarioServer: idUsuario,
+                feedbackServer : feedback
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    sessionStorage.CASA_USUARIO = casa;
+                    sessionStorage.FEEDBACK_USUARIO = feedback;
+                    console.log(casa);
+                } else {
+                    throw "Houve um erro ao tentar realizar o registro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
 }
 
 function handleNextButton() {
